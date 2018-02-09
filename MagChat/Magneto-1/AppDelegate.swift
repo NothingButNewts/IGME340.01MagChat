@@ -3,7 +3,7 @@
 //  Magneto-1
 //
 //  Created by Student on 1/30/18.
-//  Copyright © 2018 IsaacWalerstein. All rights reserved.
+//  Copyright © 2018 IsaacWalerstein & Peter Woodsum. All rights reserved.
 //
 
 import UIKit
