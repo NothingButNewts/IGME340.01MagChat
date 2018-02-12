@@ -1,5 +1,5 @@
-# IGME340.01Proj1
-Repository for the first project for Multi Media App Development
+# IGME340.01Proj1 - MagChat
+Repository for the first project for Multi Media App Development, MagChat
 
 ScreenShots for first milestone
 
