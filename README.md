@@ -1,5 +1,13 @@
 # IGME340.01Proj1 - MagChat
 Repository for the first project for Multi Media App Development, MagChat
+Developed by Isaac Walerstein and Peter Woodsum
+
+Proposed features for the final project:
+- Adding an option to select a background color/image 
+- Add an option to change the size of the words(and their hitbox)
+- Add an option to clear the poem
+- Add an option to keep words between themes
+- Add options to change color/font/style of words
 
 ScreenShots for first milestone
 
