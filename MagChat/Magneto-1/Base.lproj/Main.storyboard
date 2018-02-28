@@ -64,15 +64,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pick a theme" id="8ok-9N-Xzz">
-                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="f0f-nr-aGh">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MoR-zz-Ac3">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <segue destination="eXH-YJ-9xT" kind="unwind" identifier="DoneTapped" unwindAction="unwindToMainWithSegue:" id="673-fK-0sa"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="f0f-nr-aGh">
+                            <connections>
+                                <segue destination="eXH-YJ-9xT" kind="unwind" identifier="DoneTapped" unwindAction="unwindToMainWithSegue:" id="IZo-sm-HDC"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="aMC-Xx-6pr">
                             <connections>
