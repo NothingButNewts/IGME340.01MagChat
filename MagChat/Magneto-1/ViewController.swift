@@ -3,7 +3,7 @@
 //  Magneto-1
 //
 //  Created by Student on 1/30/18.
-//  Copyright © 2018 IsaacWalerstein & Peter Woodsum. All rights reserved.
+//  Copyright © 2018 Isaac Walerstein & Peter Woodsum. All rights reserved.
 //
 
 import UIKit
@@ -15,37 +15,36 @@ class ViewController: UIViewController {
     let words3 = ["  fantasy  ", "  dragons  ", "  ogres  ", "  goblins  ", "  forests  ", "  castles  ", "  knights  ", "  horses  ", "  monsters  ", "  quests  ", "  noble  ", "  king  ", "  princess  ", "  quest  ", "  gold  ", "  adventure  ", "  slain  ", "  adventure  ", "  wizard  ", "  church  ", "  magic  ", "  feasts  ", "  loyalty  ", "  cities  ", "  townships  ",
                   "  thief  "]
     
-    func placeWords(words: [String]){
+    func placeWords(words: [String]) {
         var firstInRow = true
         var x:CGFloat = 0.0
         var y:CGFloat = 50.0
-        for word in words{
-            let l = UILabel()
-            l.backgroundColor = UIColor.white
-            l.text = word
-            l.sizeToFit()
-            if firstInRow{
-                x = 30 + (l.frame.width/2)
+        for word in words {
+            let tempLabel = UILabel()
+            tempLabel.backgroundColor = UIColor.white
+            tempLabel.text = word
+            tempLabel.sizeToFit()
+            if firstInRow {
+                x = 30 + ( tempLabel.frame.width / 2 )
                 firstInRow = false
             }
-            else{
-                x += 30 + (l.frame.width/2)
+            else {
+                x += 30 + ( tempLabel.frame.width / 2 )
             }
-            
-            l.center = CGPoint(x:x, y:y)
-            l.isUserInteractionEnabled = true
+            tempLabel.center = CGPoint(x:x, y:y)
+            tempLabel.isUserInteractionEnabled = true
             let panGesture = UIPanGestureRecognizer(target: self, action: #selector(doPanGesture))
-            l.addGestureRecognizer(panGesture)
-            view.addSubview(l)
-            if x >= view.frame.size.width - 150{
+            tempLabel.addGestureRecognizer(panGesture)
+            view.addSubview(tempLabel)
+            if x >= view.frame.size.width - 150 {
                 firstInRow = true
                 y += 50
             }
-            x += (l.frame.width/2)
+            x += ( tempLabel.frame.width / 2 )
         }
     }
     
-    func clearScreen(){
+    func clearScreen() {
         view.subviews.forEach({ $0.removeFromSuperview() })
         ViewController().placeWords(words: words1)
         print("CLICKED")
@@ -53,13 +52,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        super.view.backgroundColor = UIColor.orange
+        super.view.backgroundColor = UIColor.blue
+        placeWords(words: words1)
     }
     
-    
-    
-    @objc func doPanGesture(panGesture:UIPanGestureRecognizer){
+    @objc func doPanGesture(panGesture:UIPanGestureRecognizer) {
         let label = panGesture.view as! UILabel
         let position = panGesture.location(in: view)
         label.center = position
@@ -71,31 +68,32 @@ class ViewController: UIViewController {
             themesVC.themes = ["common", "common2", "common3"]
         }
     }
-    @IBAction func unwindToMain(segue:UIStoryboardSegue){
+    
+    @IBAction func unwindToMain(segue:UIStoryboardSegue) {
         if segue.identifier == "DoneTapped"{
             let themesVC = segue.source as! themeTableVC
             let theme = themesVC.selectedTheme
-            let end = self.view.subviews.count-1
-            if end > 0{
-                for _ in 1...end{
+            let end = self.view.subviews.count - 1
+            if end > 0 {
+                for _ in 1...end {
                     self.view.subviews[1].removeFromSuperview()
                 }
             }
-            if theme == "Common"{
-                
+            if theme == "Common" {
                 self.placeWords(words: words1)
             }
-            if theme == "Video Games"{
+            if theme == "Video Games" {
                 self.placeWords(words: words2)
             }
-            if theme == "Fantasy"{
+            if theme == "Fantasy" {
                 self.placeWords(words: words3)
-                }
-                
+            }
         }
     }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
 }
 
