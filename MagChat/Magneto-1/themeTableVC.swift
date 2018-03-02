@@ -7,20 +7,43 @@
 //
 
 import UIKit
+import Foundation
 
 class themeTableVC: UITableViewController {
-
+    
+    static let shared = themeTableVC()
     var themes = ["Common", "Video Games", "Fantasy"]
+    let themesKey = "themesKey"
     var selectedTheme = "Common"
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    public func saveDeaultsData() {
+        print("Saving to defaults")
+        let defaults = UserDefaults.standard
+        print(selectedTheme)
+        defaults.set(selectedTheme, forKey: themesKey)
+    }
+    
+    public func readDefaultsData(){
+        let defaults = UserDefaults.standard
+        selectedTheme = defaults.string(forKey: themesKey) as String!
+        print(selectedTheme)
+        if let temp = defaults.object(forKey: themesKey){
+            selectedTheme = temp as! String
+        }
+        else {
+            print("No data")
+            selectedTheme = "Common"
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
