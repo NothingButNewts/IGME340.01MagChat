@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		249EB6EC204765BE004972D3 /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249EB6EB204765BE004972D3 /* WordManager.swift */; };
+		3FA3F5E920474D9F001A7701 /* WordObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3F5E820474D9F001A7701 /* WordObject.swift */; };
 		3FA7634E20212B9F002926AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA7634D20212B9F002926AF /* AppDelegate.swift */; };
 		3FA7635020212B9F002926AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA7634F20212B9F002926AF /* ViewController.swift */; };
 		3FA7635320212B9F002926AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FA7635120212B9F002926AF /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		249EB6EB204765BE004972D3 /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
+		3FA3F5E820474D9F001A7701 /* WordObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordObject.swift; sourceTree = "<group>"; };
 		3FA7634A20212B9F002926AF /* MagChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA7634D20212B9F002926AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FA7634F20212B9F002926AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				3FA7635420212B9F002926AF /* Assets.xcassets */,
 				3FA7635620212B9F002926AF /* LaunchScreen.storyboard */,
 				3FA7635920212B9F002926AF /* Info.plist */,
+				3FA3F5E820474D9F001A7701 /* WordObject.swift */,
+				249EB6EB204765BE004972D3 /* WordManager.swift */,
 			);
 			path = "Magneto-1";
 			sourceTree = "<group>";
@@ -140,8 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				249EB6EC204765BE004972D3 /* WordManager.swift in Sources */,
 				3FC0BFC5203B5F29008A995F /* themeTableVC.swift in Sources */,
 				3FA7635020212B9F002926AF /* ViewController.swift in Sources */,
+				3FA3F5E920474D9F001A7701 /* WordObject.swift in Sources */,
 				3FA7634E20212B9F002926AF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

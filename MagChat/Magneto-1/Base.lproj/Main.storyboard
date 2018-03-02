@@ -13,14 +13,59 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MagChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="UIImageView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tha-bN-gTI">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9x-FE-sI1">
+                                <rect key="frame" x="0.0" y="423" width="375" height="200"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7v-wT-DG3">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <items>
+                                            <barButtonItem title="Background" id="JwS-dB-xzP">
+                                                <connections>
+                                                    <action selector="cameraButtonTapped:" destination="BYZ-38-t0r" id="mc3-3i-fjA"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="rh7-f9-j4w"/>
+                                            <barButtonItem title="Clear" id="e86-mv-d6t">
+                                                <connections>
+                                                    <action selector="clearButton:" destination="BYZ-38-t0r" id="Vcu-dp-Cam"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIb-Op-BVc">
+                                        <rect key="frame" x="287" y="102" width="80" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <state key="normal" title="Refresh"/>
+                                        <connections>
+                                            <action selector="refreshWordBank:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XSk-Ru-hMe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.81753099789254813" blue="0.51526131832471311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="0.71461419442826668" blue="0.3792842133004074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="uIb-Op-BVc" firstAttribute="top" secondItem="Y7v-wT-DG3" secondAttribute="bottom" constant="58" id="Bea-Xf-dxB"/>
+                                    <constraint firstAttribute="height" constant="200" id="KLW-wE-ZJt"/>
+                                    <constraint firstItem="Y7v-wT-DG3" firstAttribute="top" secondItem="y9x-FE-sI1" secondAttribute="top" id="Njb-0F-LTj"/>
+                                    <constraint firstAttribute="bottom" secondItem="uIb-Op-BVc" secondAttribute="bottom" constant="57" id="Re9-qw-n9R"/>
+                                    <constraint firstAttribute="trailing" secondItem="uIb-Op-BVc" secondAttribute="trailing" constant="8" id="iaI-cU-inl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y7v-wT-DG3" secondAttribute="trailing" id="nMs-hk-jIW"/>
+                                    <constraint firstItem="Y7v-wT-DG3" firstAttribute="leading" secondItem="y9x-FE-sI1" secondAttribute="leading" id="vcX-7e-SCz"/>
+                                </constraints>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tha-bN-gTI">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
+                                    <barButtonItem title="Expand" id="v6H-qE-ZM1">
+                                        <connections>
+                                            <action selector="expandButton:" destination="BYZ-38-t0r" id="iDP-sm-2Bj"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4U0-je-9aH"/>
                                     <barButtonItem title="Choose Theme" id="btY-0f-Ws6">
                                         <connections>
@@ -33,12 +78,27 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tha-bN-gTI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="626-bg-uEH"/>
+                            <constraint firstItem="y9x-FE-sI1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8PB-nk-RuK"/>
+                            <constraint firstItem="tha-bN-gTI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="V7S-6p-9q2"/>
+                            <constraint firstItem="tha-bN-gTI" firstAttribute="top" secondItem="y9x-FE-sI1" secondAttribute="bottom" id="aVl-dR-8xj"/>
+                            <constraint firstItem="tha-bN-gTI" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="u1g-sf-Ni4"/>
+                            <constraint firstItem="y9x-FE-sI1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wmX-6O-IVp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bankToolBar" destination="Y7v-wT-DG3" id="Y6f-JG-4Gb"/>
+                        <outlet property="bottomToolBar" destination="tha-bN-gTI" id="yaI-Z1-FJR"/>
+                        <outlet property="expandButtonOutlet" destination="v6H-qE-ZM1" id="sCv-sc-1U2"/>
+                        <outlet property="wordBankHeight" destination="KLW-wE-ZJt" id="FpD-aY-Z4k"/>
+                        <outlet property="wordBankOutlet" destination="y9x-FE-sI1" id="ncY-th-bfg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-964" y="154"/>
+            <point key="canvasLocation" x="-964" y="152.47376311844079"/>
         </scene>
         <!--Pick a theme-->
         <scene sceneID="pVm-4Q-e2L">
