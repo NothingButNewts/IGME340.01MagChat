@@ -24,7 +24,7 @@ class themeTableVC: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 
-    public func saveDeaultsData() {
+    public func saveDefaultsData() {
         print("Saving to defaults")
         let defaults = UserDefaults.standard
         defaults.set(selectedTheme, forKey: themesKey)

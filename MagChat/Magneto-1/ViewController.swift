@@ -252,7 +252,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @objc func saveDefaultsData(){
         themeTableVC.shared.selectedTheme = currentTheme
-        themeTableVC.shared.saveDeaultsData()
+        themeTableVC.shared.saveDefaultsData()
     }
     
     //Adjusts the font size of future labels
