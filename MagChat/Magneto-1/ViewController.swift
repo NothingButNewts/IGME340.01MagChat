@@ -27,9 +27,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let words3 = ["  fantasy  ", "  dragons  ", "  ogres  ", "  goblins  ", "  forests  ", "  castles  ", "  knights  ", "  horses  ", "  monsters  ", "  quests  ", "  noble  ", "  king  ", "  princess  ", "  quest  ", "  gold  ", "  adventure  ", "  slain  ", "  adventure  ", "  wizard  ", "  church  ", "  magic  ", "  feasts  ", "  loyalty  ", "  cities  ", "  townships  ",
                   "  thief  "]
     
+    let words4 = ["  go  ", "  to  ", "  class  ", "  take  ", "  a  ", "  test  ", "  meet  ", "  other  ", "  the  ", "  students  ", "  student  ", "  essay  ", "  research  ", "  exam  ", "  supplies  ", "  snow  ", "  assignment  ", "  homework  ", "  teacher  ", "  professor  ", "  code  ", "  grade  ", "  quiz  ", "  good  ", "  bad  ",
+                  "  fail  "]
+    
+    let words5 = ["  friend  ", "  friends  ", "  a  ", "  an  ", "  the  ", "  party  ", "  hang  ", "  out  ", "  play  ", "  games  ", "  meet  ", "  go  ", "  dinner  ", "  lunch  ", "  play  ", "  together  ", "  others  ", "  drink  ", "  talk  ", "  movie  ", "  work  ", "  video  ", "  games  ", "  concert  ", "  event  ",
+                  "  with  "]
+    
     var workSpaceWords = [WordObject]()
     var wordBankWords = [WordObject]()
     var currentTheme = "Common"
+    var fontSize: CGFloat = 0.023
     
     var backgroundImage:UIImage?
     
@@ -62,7 +69,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let tempLabel = UILabel()
             tempLabel.backgroundColor = UIColor.white
             tempLabel.text = word
-            tempLabel.font = tempLabel.font.withSize(view.frame.height * 0.023); // Scale font based on the screen height
+            tempLabel.font = tempLabel.font.withSize(view.frame.height * fontSize)// Scale font based on the screen height
             tempLabel.sizeToFit()
             tempLabel.tag = 100
             if firstInRow {
@@ -99,7 +106,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if currentTheme == "Common" {
             let randomNumber = arc4random_uniform(_:UInt32(words1.count))
             tempWord = words1[Int(randomNumber)]
-            
         }
         else if currentTheme == "Video Games" {
             let randomNumber = arc4random_uniform(_:UInt32(words2.count))
@@ -109,7 +115,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let randomNumber = arc4random_uniform(_:UInt32(words3.count))
             tempWord = words3[Int(randomNumber)]
         }
-        
+        else if currentTheme == "School" {
+            let randomNumber = arc4random_uniform(_:UInt32(words4.count))
+            tempWord = words4[Int(randomNumber)]
+        }
+        else if currentTheme == "Social" {
+            let randomNumber = arc4random_uniform(_:UInt32(words5.count))
+            tempWord = words5[Int(randomNumber)]
+        }
         return tempWord
     }
     
@@ -117,14 +130,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func clearScreen() {
         for subview in view.subviews {
             if subview.tag == 100 {
-                subview.removeFromSuperview()
+                UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.0, options: [], animations: {
+                    subview.center.x = self.view.frame.width + 100
+                }, completion: { finished in subview.removeFromSuperview() } )
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.view.backgroundColor = UIColor.blue
+        super.view.backgroundColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1)
         wordBankHeight.constant = view.frame.height / 4 + bankToolBar.frame.height
         NotificationCenter.default.addObserver(self, selector: #selector(saveDefaultsData), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         themeTableVC.shared.readDefaultsData()
@@ -166,10 +181,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showThemeSegue"{
             let themesVC = segue.destination.childViewControllers[0] as! themeTableVC
-            themesVC.themes = ["common", "common2", "common3"]
+            themesVC.themes = ["common", "common2", "common3", "common4", "common5"]
         }
     }
     
+    //Calls claer screen function
     @IBAction func clearButton(_ sender: Any) {
         clearScreen()
     }
@@ -237,6 +253,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc func saveDefaultsData(){
         themeTableVC.shared.selectedTheme = currentTheme
         themeTableVC.shared.saveDeaultsData()
+    }
+    
+    //Adjusts the font size of future labels
+    @IBAction func setFontSize(_ sender: UISlider) {
+        fontSize = CGFloat(sender.value)
     }
     
 }

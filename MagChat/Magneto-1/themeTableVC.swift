@@ -12,7 +12,7 @@ import Foundation
 class themeTableVC: UITableViewController {
     
     static let shared = themeTableVC()
-    var themes = ["Common", "Video Games", "Fantasy"]
+    var themes = ["Common", "Video Games", "Fantasy", "School", "Social"]
     let themesKey = "themesKey"
     var selectedTheme = "Common"
     
@@ -27,14 +27,17 @@ class themeTableVC: UITableViewController {
     public func saveDeaultsData() {
         print("Saving to defaults")
         let defaults = UserDefaults.standard
-        print(selectedTheme)
         defaults.set(selectedTheme, forKey: themesKey)
     }
     
     public func readDefaultsData(){
         let defaults = UserDefaults.standard
-        selectedTheme = defaults.string(forKey: themesKey) as String!
-        print(selectedTheme)
+        if defaults.string(forKey: themesKey) != nil {
+            selectedTheme = defaults.string(forKey: themesKey) as String!
+        }
+        else {
+            selectedTheme = "Common"
+        }
         if let temp = defaults.object(forKey: themesKey){
             selectedTheme = temp as! String
         }
@@ -71,8 +74,8 @@ class themeTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         selectedTheme = themes[indexPath.row]
-        print(selectedTheme)
     }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }

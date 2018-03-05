@@ -47,6 +47,12 @@
                                             <action selector="refreshWordBank:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XSk-Ru-hMe"/>
                                         </connections>
                                     </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.023" minValue="0.02" maxValue="0.028000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="ZQg-NA-1fF">
+                                        <rect key="frame" x="80" y="170" width="609" height="31"/>
+                                        <connections>
+                                            <action selector="setFontSize:" destination="BYZ-38-t0r" eventType="valueChanged" id="ths-Sf-4sg"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.81753099789254813" blue="0.51526131832471311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="1" green="0.71461419442826668" blue="0.3792842133004074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,7 +61,9 @@
                                     <constraint firstAttribute="height" constant="200" id="KLW-wE-ZJt"/>
                                     <constraint firstItem="Y7v-wT-DG3" firstAttribute="top" secondItem="y9x-FE-sI1" secondAttribute="top" id="Njb-0F-LTj"/>
                                     <constraint firstAttribute="bottom" secondItem="uIb-Op-BVc" secondAttribute="bottom" constant="57" id="Re9-qw-n9R"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZQg-NA-1fF" secondAttribute="trailing" constant="81" id="WEx-Vf-AGI"/>
                                     <constraint firstAttribute="trailing" secondItem="uIb-Op-BVc" secondAttribute="trailing" constant="8" id="iaI-cU-inl"/>
+                                    <constraint firstItem="ZQg-NA-1fF" firstAttribute="leading" secondItem="y9x-FE-sI1" secondAttribute="leading" constant="82" id="lli-Zw-OA2"/>
                                     <constraint firstAttribute="trailing" secondItem="Y7v-wT-DG3" secondAttribute="trailing" id="nMs-hk-jIW"/>
                                     <constraint firstItem="Y7v-wT-DG3" firstAttribute="leading" secondItem="y9x-FE-sI1" secondAttribute="leading" id="vcX-7e-SCz"/>
                                 </constraints>
@@ -89,6 +97,7 @@
                         <constraints>
                             <constraint firstItem="tha-bN-gTI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="626-bg-uEH"/>
                             <constraint firstItem="y9x-FE-sI1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8PB-nk-RuK"/>
+                            <constraint firstItem="tha-bN-gTI" firstAttribute="top" secondItem="ZQg-NA-1fF" secondAttribute="bottom" id="NbW-ZM-3e4"/>
                             <constraint firstItem="tha-bN-gTI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="V7S-6p-9q2"/>
                             <constraint firstItem="tha-bN-gTI" firstAttribute="top" secondItem="y9x-FE-sI1" secondAttribute="bottom" id="aVl-dR-8xj"/>
                             <constraint firstItem="tha-bN-gTI" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="u1g-sf-Ni4"/>
@@ -107,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-964" y="152.47376311844079"/>
+            <point key="canvasLocation" x="-965.21739130434787" y="151.63043478260872"/>
         </scene>
         <!--Pick a theme-->
         <scene sceneID="pVm-4Q-e2L">
